@@ -1,35 +1,70 @@
 // Paletas: fondo de página + acento principal + acento secundario
-const paletas = [
-  { papel: "#faf6ee", acento: "#0f6b5c", acento2: "#c1633b" },
-  { papel: "#f3f2e8", acento: "#3b5b6e", acento2: "#c97b3d" },
-  { papel: "#f6efe9", acento: "#8a4a3d", acento2: "#3f7a5c" },
-  { papel: "#eef2ec", acento: "#4a5f3a", acento2: "#a3572f" }
+// Colores que se van alternando
+const colores = [
+    {
+        fondo: "#fff8f3",
+        principal: "#c65f72",
+        oscuro: "#8f3e50",
+        secundario: "#f4d7d8"
+    },
+    {
+        fondo: "#f3f8ff",
+        principal: "#5279b8",
+        oscuro: "#34537f",
+        secundario: "#d9e6f7"
+    },
+    {
+        fondo: "#f5fbf6",
+        principal: "#5b9270",
+        oscuro: "#37664b",
+        secundario: "#dcefe2"
+    },
+    {
+        fondo: "#fff9ed",
+        principal: "#c28a3e",
+        oscuro: "#8a6028",
+        secundario: "#f4e4c5"
+    },
+    {
+        fondo: "#f8f3ff",
+        principal: "#8665ad",
+        oscuro: "#5b4378",
+        secundario: "#e7dcf4"
+    }
 ];
 
-function cambiarColor() {
-  const random = Math.floor(Math.random() * paletas.length);
-  const paleta = paletas[random];
-  const raiz = document.documentElement.style;
-  raiz.setProperty("--papel", paleta.papel);
-  raiz.setProperty("--acento", paleta.acento);
-  raiz.setProperty("--acento-2", paleta.acento2);
-}
+let colorActual = 0;
 
-// Navegación entre secciones
-document.addEventListener("DOMContentLoaded", () => {
-  const entradas = document.querySelectorAll(".entrada");
-  const paneles = document.querySelectorAll(".panel");
+const boton = document.getElementById("colorButton");
 
-  entradas.forEach((entrada) => {
-    entrada.addEventListener("click", () => {
-      const destino = entrada.getAttribute("data-tab");
+boton.addEventListener("click", function () {
 
-      entradas.forEach((e) => e.classList.remove("activa"));
-      entrada.classList.add("activa");
+    colorActual++;
 
-      paneles.forEach((panel) => {
-        panel.classList.toggle("activa", panel.id === destino);
-      });
-    });
-  });
+    if (colorActual >= colores.length) {
+        colorActual = 0;
+    }
+
+    const nuevoColor = colores[colorActual];
+
+    document.documentElement.style.setProperty(
+        "--fondo",
+        nuevoColor.fondo
+    );
+
+    document.documentElement.style.setProperty(
+        "--principal",
+        nuevoColor.principal
+    );
+
+    document.documentElement.style.setProperty(
+        "--principal-oscuro",
+        nuevoColor.oscuro
+    );
+
+    document.documentElement.style.setProperty(
+        "--secundario",
+        nuevoColor.secundario
+    );
+
 });
