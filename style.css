@@ -1,100 +1,39 @@
-body {
-  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  text-align: center;
-  padding: 40px 20px 80px;
-  margin: 0;
-  color: #2b2b2b;
-  transition: background-color 0.3s;
+// Paletas de fondo + colores de acento, para que "Cambiar color" varíe todo el tema
+const paletas = [
+  { fondo: "#fdf3df", acento: "#0e8f7d", acento2: "#e67e5a" },
+  { fondo: "#e6f5f2", acento: "#1f7a5c", acento2: "#f2a541" },
+  { fondo: "#fde2e2", acento: "#c1446e", acento2: "#4a6fa5" },
+  { fondo: "#e2e8fd", acento: "#3b5bab", acento2: "#e0576b" }
+];
+
+function cambiarColor() {
+  const random = Math.floor(Math.random() * paletas.length);
+  const paleta = paletas[random];
+  const raiz = document.documentElement.style;
+  raiz.setProperty("--color-fondo", paleta.fondo);
+  raiz.setProperty("--color-acento", paleta.acento);
+  raiz.setProperty("--color-acento-2", paleta.acento2);
 }
 
-header {
-  margin-bottom: 40px;
-}
+// Lógica de pestañas
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll(".pestana");
+  const paneles = document.querySelectorAll(".panel");
 
-h1 {
-  color: #0e8f7d;
-  margin-bottom: 8px;
-}
+  botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const destino = boton.getAttribute("data-tab");
 
-.subtitulo {
-  color: #555;
-  margin-bottom: 20px;
-}
+      botones.forEach((b) => {
+        b.classList.remove("activa");
+        b.setAttribute("aria-selected", "false");
+      });
+      boton.classList.add("activa");
+      boton.setAttribute("aria-selected", "true");
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: #0e8f7d;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease;
-}
-
-button:hover {
-  background-color: #0b7565;
-  transform: translateY(-1px);
-}
-
-main {
-  max-width: 780px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.tarjeta {
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(14, 143, 125, 0.15);
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-}
-
-.tarjeta h2 {
-  color: #0e8f7d;
-  margin-top: 0;
-}
-
-.datos {
-  padding-left: 20px;
-  line-height: 1.6;
-}
-
-.datos li {
-  margin-bottom: 8px;
-}
-
-.grid-tipos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.tipo {
-  background-color: rgba(14, 143, 125, 0.06);
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-
-.tipo h3 {
-  margin: 0 0 6px;
-  color: #0b7565;
-  font-size: 1.05rem;
-}
-
-.tipo p {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #777;
-}
+      paneles.forEach((panel) => {
+        panel.classList.toggle("activa", panel.id === destino);
+      });
+    });
+  });
+});
