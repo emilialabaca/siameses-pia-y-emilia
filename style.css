@@ -1,313 +1,451 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 :root {
-  --papel: #faf6ee;
-  --tinta: #232c29;
-  --acento: #0f6b5c;
-  --acento-2: #c1633b;
-  --linea: #d8cfbd;
-  --bloque: #e4ebe4;
+    --fondo: #fff8f3;
+    --principal: #c65f72;
+    --principal-oscuro: #8f3e50;
+    --secundario: #f4d7d8;
+    --texto: #30252a;
+    --blanco: #ffffff;
 }
 
 * {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Lora", serif;
-  color: var(--tinta);
-  background-color: var(--papel);
-  transition: background-color 0.4s ease;
-  line-height: 1.65;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    transition: 0.5s;
 }
 
-.pagina {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  max-width: 980px;
-  margin: 0 auto;
-  min-height: 100vh;
-}
 
-/* ÍNDICE lateral */
-.indice {
-  border-right: 1px solid var(--linea);
-  padding: 48px 28px;
-  position: sticky;
-  top: 0;
-  align-self: start;
-  height: 100vh;
-  overflow-y: auto;
-}
+/* =========================
+   NAVBAR
+========================= */
 
-.indice-cabecera h1 {
-  font-size: 1.7rem;
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 0 0 10px;
-  color: var(--acento);
-}
-
-.descripcion {
-  font-size: 0.92rem;
-  font-style: italic;
-  color: #5a5a52;
-  margin: 0 0 20px;
-}
-
-.indice button.entrada,
-.indice-cabecera button {
-  font-family: "Lora", serif;
-}
-
-.indice-cabecera button {
-  background: none;
-  border: 1px solid var(--acento);
-  color: var(--acento);
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.indice-cabecera button:hover {
-  background-color: var(--acento);
-  color: var(--papel);
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 248, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ead9d7;
 }
 
 nav {
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--linea);
+    max-width: 1200px;
+    margin: auto;
+    height: 75px;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.entrada {
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--linea);
-  text-align: left;
-  padding: 14px 4px;
-  font-size: 0.98rem;
-  color: var(--tinta);
-  cursor: pointer;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+.logo {
+    font-family: "DM Serif Display", serif;
+    color: var(--principal);
+    letter-spacing: 2px;
 }
 
-.entrada .marca {
-  font-size: 0.8rem;
-  color: var(--acento-2);
-  font-variant: small-caps;
-  min-width: 18px;
+.nav-links {
+    display: flex;
+    gap: 25px;
 }
 
-.entrada:hover {
-  color: var(--acento);
+.nav-links a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.entrada.activa {
-  color: var(--acento);
-  font-weight: 600;
+.nav-links a:hover {
+    color: var(--principal);
 }
 
-.entrada.activa .marca {
-  color: var(--acento);
+#colorButton {
+    border: none;
+    background: var(--principal);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s;
 }
 
-/* CONTENIDO */
-main {
-  padding: 56px 56px 40px;
+#colorButton:hover {
+    transform: scale(1.05);
 }
 
-.panel {
-  display: none;
-  animation: entrar 0.3s ease;
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1200px;
+    min-height: 650px;
+    margin: auto;
+    padding: 80px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 }
 
-.panel.activa {
-  display: block;
+.hero-text {
+    max-width: 650px;
 }
 
-@keyframes entrar {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+.mini-title,
+.section-number {
+    color: var(--principal);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
 
-.numero-seccion {
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  color: var(--acento-2);
-  margin: 0 0 2px;
+h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(60px, 9vw, 110px);
+    line-height: 0.9;
+    font-weight: 400;
 }
 
-.panel h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--tinta);
-  margin: 0 0 22px;
-  max-width: 22ch;
+h1 span {
+    color: var(--principal);
 }
 
-.panel p {
-  max-width: 62ch;
-  margin: 0 0 18px;
-  font-size: 1.02rem;
+.hero-text > p:not(.mini-title) {
+    margin-top: 30px;
+    max-width: 500px;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
-/* Figura de la sección I */
-.figura {
-  margin: 30px 0 0;
-  max-width: 220px;
+.main-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 25px;
+    border-radius: 30px;
+    background: var(--principal);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.figura svg {
-  width: 100%;
-  height: auto;
+.main-button:hover {
+    background: var(--principal-oscuro);
+    transform: translateY(-3px);
 }
 
-.figura figcaption {
-  font-size: 0.82rem;
-  font-style: italic;
-  color: #6b6b62;
-  margin-top: 8px;
+.hero-card {
+    width: 330px;
+    padding: 40px;
+    background: var(--secundario);
+    border-radius: 40px 10px 40px 10px;
 }
 
-/* Listas de datos (II y IV) */
-.lista-datos {
-  margin: 0;
-  border-top: 1px solid var(--linea);
+.hero-card .circle {
+    width: 70px;
+    height: 70px;
+    background: var(--principal);
+    color: white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 
-.fila-dato {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 24px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--linea);
-  align-items: baseline;
+.hero-card h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
-.fila-dato dt {
-  font-weight: 600;
-  color: var(--acento);
-  font-size: 1.15rem;
+.hero-card p {
+    line-height: 1.7;
+    font-size: 14px;
 }
 
-.fila-dato dd {
-  margin: 0;
-  max-width: 46ch;
-  color: #3c3c36;
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 25px;
 }
 
-.lista-datos.compacta {
-  margin-top: 10px;
+.section h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(40px, 6vw, 70px);
+    font-weight: 400;
+    margin-bottom: 50px;
 }
 
-/* Tipos de unión (III) */
-.lista-tipos {
-  border-top: 1px solid var(--linea);
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
 }
 
-.fila-tipo {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 24px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--linea);
+.two-columns p {
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
-.fila-tipo h3 {
-  margin: 0;
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: var(--acento);
+.big-text {
+    font-family: "DM Serif Display", serif;
+    font-size: 30px;
+    line-height: 1.3 !important;
 }
 
-.fila-tipo p {
-  margin: 0;
-  max-width: 48ch;
-  font-size: 0.98rem;
-  color: #3c3c36;
+
+/* =========================
+   SECCIÓN COLOREADA
+========================= */
+
+.colored-section {
+    max-width: none;
+    padding-left: max(25px, calc((100% - 1150px) / 2));
+    padding-right: max(25px, calc((100% - 1150px) / 2));
+
+    background: var(--secundario);
 }
 
-/* Casos conocidos (V) */
-.lista-casos {
-  border-top: 1px solid var(--linea);
+.intro {
+    max-width: 650px;
+    line-height: 1.8;
+    margin-bottom: 50px;
 }
 
-.fila-caso {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--linea);
+
+/* =========================
+   TARJETAS
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-.fila-caso h3 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-  font-weight: 600;
+.card {
+    background: var(--blanco);
+    padding: 30px;
+    min-height: 280px;
+
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
-.fila-caso .fecha {
-  font-weight: 400;
-  font-style: italic;
-  font-size: 0.85rem;
-  color: var(--acento-2);
-  margin-left: 8px;
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(80, 40, 50, 0.12);
 }
 
-.fila-caso p {
-  margin: 0;
-  max-width: 56ch;
-  color: #3c3c36;
+.card span {
+    color: var(--principal);
+    font-weight: 700;
+    font-size: 13px;
 }
+
+.card h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+    margin: 30px 0 15px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HISTORIA
+========================= */
+
+.history-box {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 60px;
+    padding: 50px;
+
+    border: 1px solid #decac8;
+    border-radius: 30px;
+}
+
+.history-date span {
+    display: block;
+    font-family: "DM Serif Display", serif;
+    font-size: 60px;
+    color: var(--principal);
+}
+
+.history-date small {
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.history-box p {
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   CURIOSIDADES
+========================= */
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.fact {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 20px;
+
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.fact strong {
+    color: var(--principal);
+    font-size: 20px;
+}
+
+.fact p {
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 120px 25px;
+}
+
+.final-section > p:first-child {
+    color: var(--principal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.final-section h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.final-section p:last-child {
+    line-height: 1.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-  margin-top: 48px;
-  padding-top: 18px;
-  border-top: 1px solid var(--linea);
-  font-size: 0.82rem;
-  color: #7a7a70;
+    padding: 30px;
+    background: var(--principal-oscuro);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 13px;
 }
 
-/* Responsive */
-@media (max-width: 760px) {
-  .pagina {
-    grid-template-columns: 1fr;
-  }
 
-  .indice {
-    position: static;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--linea);
-    padding: 32px 24px;
-  }
+/* =========================
+   RESPONSIVE
+========================= */
 
-  nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-top: none;
-    gap: 4px 16px;
-    margin-top: 24px;
-  }
+@media (max-width: 900px) {
 
-  .entrada {
-    border-bottom: none;
-    padding: 6px 0;
-  }
+    .nav-links {
+        display: none;
+    }
 
-  main {
-    padding: 32px 24px 40px;
-  }
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  .fila-dato,
-  .fila-tipo {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
+    .hero-card {
+        width: 100%;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .history-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .cards,
+    .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .history-box {
+        padding: 30px;
+    }
+
+    .final-section h2 {
+        font-size: 40px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
