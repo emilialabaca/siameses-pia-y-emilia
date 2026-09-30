@@ -1,31 +1,44 @@
-// Paletas: fondo de página + acento principal + acento secundario
-const paletas = [
-  { papel: "#faf6ee", acento: "#0f6b5c", acento2: "#c1633b" },
-  { papel: "#f3f2e8", acento: "#3b5b6e", acento2: "#c97b3d" },
-  { papel: "#f6efe9", acento: "#8a4a3d", acento2: "#3f7a5c" },
-  { papel: "#eef2ec", acento: "#4a5f3a", acento2: "#a3572f" }
+// Datos curiosos que se muestran al presionar el botón
+const datosCuriosos = [
+  "El récord de vida más larga de hermanos siameses lo tuvieron Ronnie y Donnie Galyon, que vivieron unidos 68 años.",
+  "Abigail y Brittany Hensel, gemelas dicéfalas, aprendieron a manejar usando cada una un pedal distinto.",
+  "En el siglo XIX, Chang y Eng Bunker llegaron a jugar al ajedrez y al bádminton frente a público pagante.",
+  "La palabra 'toracópago' viene del griego: 'thorax' (pecho) y 'pagos' (unido).",
+  "Millie y Christine McKoy, hermanas pigópagas del siglo XIX, cantaban a dos voces al mismo tiempo en sus shows.",
+  "No todas las cirugías de separación buscan que ambos sobrevivan: a veces se prioriza salvar a uno de los dos hermanos.",
+  "Existen registros de intentos de separación de hermanos siameses desde el siglo X en el Medio Oriente."
 ];
 
-function cambiarColor() {
-  const random = Math.floor(Math.random() * paletas.length);
-  const paleta = paletas[random];
-  const raiz = document.documentElement.style;
-  raiz.setProperty("--papel", paleta.papel);
-  raiz.setProperty("--acento", paleta.acento);
-  raiz.setProperty("--acento-2", paleta.acento2);
+let ultimoIndice = -1;
+
+function mostrarDato() {
+  const contenedor = document.getElementById("dato-curioso");
+
+  let indice;
+  do {
+    indice = Math.floor(Math.random() * datosCuriosos.length);
+  } while (indice === ultimoIndice && datosCuriosos.length > 1);
+  ultimoIndice = indice;
+
+  contenedor.textContent = "💡 " + datosCuriosos[indice];
+  contenedor.hidden = false;
 }
 
-// Navegación entre secciones
+// Navegación entre pestañas
 document.addEventListener("DOMContentLoaded", () => {
-  const entradas = document.querySelectorAll(".entrada");
+  const botones = document.querySelectorAll(".pestana");
   const paneles = document.querySelectorAll(".panel");
 
-  entradas.forEach((entrada) => {
-    entrada.addEventListener("click", () => {
-      const destino = entrada.getAttribute("data-tab");
+  botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const destino = boton.getAttribute("data-tab");
 
-      entradas.forEach((e) => e.classList.remove("activa"));
-      entrada.classList.add("activa");
+      botones.forEach((b) => {
+        b.classList.remove("activa");
+        b.setAttribute("aria-selected", "false");
+      });
+      boton.classList.add("activa");
+      boton.setAttribute("aria-selected", "true");
 
       paneles.forEach((panel) => {
         panel.classList.toggle("activa", panel.id === destino);
