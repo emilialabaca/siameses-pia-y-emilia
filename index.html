@@ -15,8 +15,13 @@
     <p class="etiqueta">Sitio educativo</p>
     <h1>Hermanos siameses</h1>
     <p class="subtitulo">Una guía visual sobre los gemelos unidos: qué son, cómo se clasifican y algunos casos conocidos.</p>
-    <button id="boton-dato" onclick="mostrarDato()">🔎 Revelar un dato curioso</button>
-    <p id="dato-curioso" class="dato-curioso" hidden></p>
+
+    <div class="botones-header">
+      <button onclick="cambiarColor()">🎨 Cambiar color de fondo</button>
+      <button onclick="mostrarDato()">💡 Dato curioso</button>
+    </div>
+
+    <p id="caja-dato" class="caja-dato oculto"></p>
   </header>
 
   <main>
@@ -34,22 +39,30 @@
     <section id="intro" class="panel activa">
       <div class="tarjeta destacada">
         <div class="ilustracion">
-          <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de una unión toracópaga">
-            <!-- Siluetas -->
+          <svg viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titImg descImg">
+            <title id="titImg">Ilustración de una unión toracópaga</title>
+            <desc id="descImg">Dos siluetas humanas unidas por el pecho, compartiendo la zona del tórax.</desc>
+
+            <!-- silueta izquierda -->
             <g>
-              <ellipse cx="95" cy="55" rx="26" ry="28" fill="var(--acento)"/>
-              <ellipse cx="165" cy="55" rx="26" ry="28" fill="var(--acento-2)"/>
-              <path d="M75 80 Q95 95 115 80 L120 190 Q95 205 70 190 Z" fill="var(--acento)"/>
-              <path d="M185 80 Q165 95 145 80 L140 190 Q165 205 190 190 Z" fill="var(--acento-2)"/>
+              <circle cx="95" cy="46" r="30" fill="var(--color-acento)"/>
+              <path d="M60 90 Q95 70 130 90 L138 190 Q95 210 52 190 Z" fill="var(--color-acento)"/>
+              <path d="M60 95 Q40 120 42 165" stroke="var(--color-acento)" stroke-width="14" stroke-linecap="round" fill="none"/>
+              <path d="M78 200 Q76 235 66 250" stroke="var(--color-acento)" stroke-width="16" stroke-linecap="round" fill="none"/>
             </g>
-            <!-- Zona de unión torácica -->
-            <ellipse cx="130" cy="115" rx="22" ry="26" fill="#fff" stroke="var(--acento-2)" stroke-width="2" opacity="0.95"/>
-            <path d="M118 108 Q130 100 142 108 L142 122 Q130 132 118 122 Z" fill="var(--acento-2)" opacity="0.75"/>
-            <!-- Líneas guía -->
-            <line x1="130" y1="115" x2="205" y2="70" stroke="var(--linea-guia)" stroke-width="1.4" stroke-dasharray="3 3"/>
-            <line x1="95" y1="80" x2="30" y2="45" stroke="var(--linea-guia)" stroke-width="1.4" stroke-dasharray="3 3"/>
+
+            <!-- silueta derecha -->
+            <g>
+              <circle cx="150" cy="46" r="30" fill="var(--color-acento-2)"/>
+              <path d="M115 90 Q150 70 185 90 L193 190 Q150 210 107 190 Z" fill="var(--color-acento-2)"/>
+              <path d="M185 95 Q205 120 203 165" stroke="var(--color-acento-2)" stroke-width="14" stroke-linecap="round" fill="none"/>
+              <path d="M167 200 Q169 235 179 250" stroke="var(--color-acento-2)" stroke-width="16" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- zona de unión torácica compartida -->
+            <ellipse cx="122" cy="140" rx="30" ry="38" fill="#ffffff" opacity="0.85"/>
+            <path d="M122 118 C112 128 108 140 122 152 C136 140 132 128 122 118 Z" fill="var(--color-acento-2)" opacity="0.7"/>
           </svg>
-          <p class="etiqueta-ilustracion">Tórax y corazón compartidos: la unión toracópaga es el tipo más frecuente.</p>
         </div>
         <div class="texto-destacado">
           <h2>¿Qué son?</h2>
@@ -60,11 +73,11 @@
             dividirse por completo para formar dos gemelos separados se divide de forma
             incompleta, generalmente entre el día 13 y el 15 después de la concepción.
           </p>
+          <p class="pie-ilustracion">Arriba: representación ilustrada de una unión toracópaga, el tipo más frecuente, donde los hermanos comparten la zona del pecho.</p>
           <p>
             El nombre "siameses" proviene de Chang y Eng Bunker, dos hermanos nacidos en
             1811 en el antiguo Reino de Siam (actual Tailandia), quienes se hicieron
-            famosos internacionalmente en el siglo XIX y popularizaron el término en
-            todo el mundo.
+            famosos internacionalmente en el siglo XIX y popularizaron el término.
           </p>
         </div>
       </div>
@@ -98,42 +111,42 @@
       <div class="grid-tipos">
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="20" cy="20" r="12" fill="var(--acento)"/><circle cx="40" cy="20" r="12" fill="var(--acento-2)"/><rect x="26" y="16" width="8" height="8" fill="#fff"/><rect x="18" y="32" width="8" height="22" rx="4" fill="var(--acento)"/><rect x="34" y="32" width="8" height="22" rx="4" fill="var(--acento-2)"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="20" r="12" fill="var(--color-acento)"/><circle cx="40" cy="20" r="12" fill="var(--color-acento-2)"/><rect x="26" y="16" width="8" height="8" fill="#fff"/><rect x="18" y="32" width="8" height="22" rx="4" fill="var(--color-acento)"/><rect x="34" y="32" width="8" height="22" rx="4" fill="var(--color-acento-2)"/></svg>
           </div>
           <h3>Toracópagos</h3>
           <p>Unidos por el tórax; suelen compartir el corazón. Es el tipo más común (~40% de los casos).</p>
         </div>
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--acento)"/><circle cx="40" cy="16" r="10" fill="var(--acento-2)"/><rect x="15" y="26" width="10" height="16" fill="var(--acento)"/><rect x="35" y="26" width="10" height="16" fill="var(--acento-2)"/><rect x="24" y="34" width="12" height="10" rx="3" fill="#fff"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--color-acento)"/><circle cx="40" cy="16" r="10" fill="var(--color-acento-2)"/><rect x="15" y="26" width="10" height="16" fill="var(--color-acento)"/><rect x="35" y="26" width="10" height="16" fill="var(--color-acento-2)"/><rect x="24" y="34" width="12" height="10" rx="3" fill="#fff"/></svg>
           </div>
           <h3>Onfalópagos</h3>
           <p>Unidos por el abdomen, a la altura del ombligo. A menudo comparten hígado o intestino.</p>
         </div>
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--acento)"/><circle cx="40" cy="16" r="10" fill="var(--acento-2)"/><rect x="15" y="26" width="10" height="26" fill="var(--acento)"/><rect x="35" y="26" width="10" height="26" fill="var(--acento-2)"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--color-acento)"/><circle cx="40" cy="16" r="10" fill="var(--color-acento-2)"/><rect x="15" y="26" width="10" height="26" fill="var(--color-acento)"/><rect x="35" y="26" width="10" height="26" fill="var(--color-acento-2)"/></svg>
           </div>
           <h3>Pigópagos</h3>
           <p>Unidos por la espalda o la zona sacra, generalmente de espaldas entre sí.</p>
         </div>
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="20" cy="14" r="9" fill="var(--acento)"/><circle cx="40" cy="14" r="9" fill="var(--acento-2)"/><rect x="16" y="23" width="9" height="18" fill="var(--acento)"/><rect x="35" y="23" width="9" height="18" fill="var(--acento-2)"/><rect x="22" y="38" width="16" height="10" rx="3" fill="#fff"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="14" r="9" fill="var(--color-acento)"/><circle cx="40" cy="14" r="9" fill="var(--color-acento-2)"/><rect x="16" y="23" width="9" height="18" fill="var(--color-acento)"/><rect x="35" y="23" width="9" height="18" fill="var(--color-acento-2)"/><rect x="22" y="38" width="16" height="10" rx="3" fill="#fff"/></svg>
           </div>
           <h3>Isquiópagos</h3>
           <p>Unidos por la pelvis, a veces compartiendo el sistema urinario o reproductivo.</p>
         </div>
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="14" r="12" fill="var(--acento)" opacity="0.9"/><rect x="24" y="24" width="6" height="26" rx="3" fill="var(--acento)"/><rect x="30" y="24" width="6" height="26" rx="3" fill="var(--acento-2)"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="14" r="12" fill="var(--color-acento)" opacity="0.9"/><rect x="24" y="24" width="6" height="26" rx="3" fill="var(--color-acento)"/><rect x="30" y="24" width="6" height="26" rx="3" fill="var(--color-acento-2)"/></svg>
           </div>
           <h3>Craneópagos</h3>
           <p>Unidos por la cabeza. Uno de los tipos más raros y complejos (~2% de los casos).</p>
         </div>
         <div class="tipo">
           <div class="icono-tipo">
-            <svg viewBox="0 0 60 60"><circle cx="20" cy="18" r="10" fill="var(--acento)"/><circle cx="40" cy="18" r="10" fill="var(--acento-2)"/><rect x="12" y="28" width="12" height="20" rx="4" fill="var(--acento)"/><rect x="36" y="28" width="12" height="20" rx="4" fill="var(--acento-2)"/></svg>
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="18" r="10" fill="var(--color-acento)"/><circle cx="40" cy="18" r="10" fill="var(--color-acento-2)"/><rect x="12" y="28" width="12" height="20" rx="4" fill="var(--color-acento)"/><rect x="36" y="28" width="12" height="20" rx="4" fill="var(--color-acento-2)"/></svg>
           </div>
           <h3>Parápagos</h3>
           <p>Unidos por el costado, a la altura de la cadera y el tronco, mirando en direcciones opuestas.</p>
@@ -143,45 +156,44 @@
 
     <!-- CIRUGÍA -->
     <section id="cirugia" class="panel">
-      <div class="tarjeta destacada">
-        <div class="ilustracion">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instrumental de quirófano">
-            <circle cx="100" cy="100" r="92" fill="var(--fondo-icono)"/>
-            <!-- Bisturí -->
-            <line x1="55" y1="140" x2="105" y2="90" stroke="var(--acento)" stroke-width="6" stroke-linecap="round"/>
-            <path d="M105 90 L128 67 L118 57 Z" fill="var(--acento-2)"/>
-            <!-- Cruz médica -->
-            <rect x="128" y="118" width="34" height="10" rx="3" fill="var(--acento-2)"/>
-            <rect x="139" y="107" width="10" height="34" rx="3" fill="var(--acento-2)"/>
-            <!-- Reloj / tiempo de cirugía -->
-            <circle cx="70" cy="60" r="18" fill="none" stroke="var(--acento)" stroke-width="4"/>
-            <line x1="70" y1="60" x2="70" y2="48" stroke="var(--acento)" stroke-width="3" stroke-linecap="round"/>
-            <line x1="70" y1="60" x2="79" y2="63" stroke="var(--acento)" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          <p class="etiqueta-ilustracion">La separación requiere planificación, tiempo y un gran equipo médico.</p>
+      <div class="tarjeta">
+        <div class="fila-cirugia">
+          <div class="ilustracion-cirugia">
+            <svg viewBox="0 0 160 160" role="img" aria-label="Ilustración de un equipo médico alrededor de una mesa de operaciones">
+              <circle cx="80" cy="80" r="76" fill="var(--color-acento)" opacity="0.08"/>
+              <ellipse cx="80" cy="105" rx="46" ry="10" fill="var(--color-acento)" opacity="0.25"/>
+              <rect x="45" y="95" width="70" height="10" rx="5" fill="#ffffff"/>
+              <circle cx="55" cy="55" r="12" fill="var(--color-acento)"/>
+              <rect x="47" y="66" width="16" height="26" rx="8" fill="var(--color-acento)"/>
+              <circle cx="105" cy="55" r="12" fill="var(--color-acento-2)"/>
+              <rect x="97" y="66" width="16" height="26" rx="8" fill="var(--color-acento-2)"/>
+              <circle cx="80" cy="42" r="10" fill="#0b7565"/>
+              <rect x="73" y="52" width="14" height="22" rx="7" fill="#0b7565"/>
+            </svg>
+          </div>
+          <div>
+            <h2>La separación quirúrgica</h2>
+            <p>
+              No todos los hermanos siameses pueden separarse: depende de qué órganos
+              comparten y de si esos órganos vitales pueden dividirse o reconstruirse en
+              cada uno. Cuando es posible, la cirugía suele ser extremadamente compleja,
+              puede durar muchas horas e involucra a grandes equipos de especialistas:
+              cirujanos pediátricos, plásticos, cardiovasculares, neurocirujanos y
+              anestesiólogos, entre otros.
+            </p>
+            <p>
+              Casos como el de las gemelas craneópagas Bernice y Jennifer Whitaker o el de
+              las hermanas guatemaltecas María de Jesús y María Teresa Quiej Alvarez
+              (separadas en 2002) muestran que, aunque riesgosa, la separación puede
+              permitir a ambos hermanos llevar vidas independientes.
+            </p>
+          </div>
         </div>
-        <div class="texto-destacado">
-          <h2>La separación quirúrgica</h2>
-          <p>
-            No todos los hermanos siameses pueden separarse: depende de qué órganos
-            comparten y de si esos órganos vitales pueden dividirse o reconstruirse en
-            cada uno. Cuando es posible, la cirugía suele ser extremadamente compleja,
-            puede durar muchas horas e involucra a grandes equipos de especialistas:
-            cirujanos pediátricos, plásticos, cardiovasculares, neurocirujanos y
-            anestesiólogos, entre otros.
-          </p>
-          <p>
-            Casos como el de las gemelas craneópagas Bernice y Jennifer Whitaker o el de
-            las hermanas guatemaltecas María de Jesús y María Teresa Quiej Alvarez
-            (separadas en 2002) muestran que, aunque riesgosa, la separación puede
-            permitir a ambos hermanos llevar vidas independientes.
-          </p>
-          <ul class="datos">
-            <li><strong>Planificación:</strong> puede tomar meses de estudios con imágenes en 3D antes de operar.</li>
-            <li><strong>Equipo:</strong> a veces participan más de 20 profesionales de la salud en una sola cirugía.</li>
-            <li><strong>Riesgos:</strong> varían mucho según los órganos compartidos, sobre todo el corazón o el cerebro.</li>
-          </ul>
-        </div>
+        <ul class="datos">
+          <li><strong>Planificación:</strong> puede tomar meses de estudios con imágenes en 3D antes de operar.</li>
+          <li><strong>Equipo:</strong> a veces participan más de 20 profesionales de la salud en una sola cirugía.</li>
+          <li><strong>Riesgos:</strong> varían mucho según los órganos compartidos, sobre todo el corazón o el cerebro.</li>
+        </ul>
       </div>
     </section>
 
@@ -189,16 +201,25 @@
     <section id="casos" class="panel">
       <div class="grid-casos">
         <div class="tarjeta caso">
+          <div class="avatar-caso">
+            <svg viewBox="0 0 60 60"><circle cx="22" cy="22" r="11" fill="var(--color-acento)"/><circle cx="38" cy="22" r="11" fill="var(--color-acento-2)"/><rect x="14" y="33" width="16" height="20" rx="6" fill="var(--color-acento)"/><rect x="30" y="33" width="16" height="20" rx="6" fill="var(--color-acento-2)"/></svg>
+          </div>
           <h3>Chang y Eng Bunker</h3>
           <p class="fecha">1811 – 1874</p>
           <p>Dieron origen al término "siameses"; vivieron unidos toda su vida, se casaron y tuvieron hijos.</p>
         </div>
         <div class="tarjeta caso">
+          <div class="avatar-caso">
+            <svg viewBox="0 0 60 60"><circle cx="22" cy="20" r="10" fill="var(--color-acento)"/><circle cx="38" cy="20" r="10" fill="var(--color-acento-2)"/><rect x="17" y="30" width="26" height="23" rx="8" fill="var(--color-acento)"/></svg>
+          </div>
           <h3>Abigail y Brittany Hensel</h3>
           <p class="fecha">1990 – actualidad</p>
           <p>Gemelas dicéfalas (dos cabezas, un solo cuerpo) estadounidenses, conocidas por llevar una vida pública activa.</p>
         </div>
         <div class="tarjeta caso">
+          <div class="avatar-caso">
+            <svg viewBox="0 0 60 60"><circle cx="22" cy="22" r="11" fill="var(--color-acento)"/><circle cx="38" cy="22" r="11" fill="var(--color-acento-2)"/><rect x="16" y="33" width="14" height="20" rx="6" fill="var(--color-acento)"/><rect x="30" y="33" width="14" height="20" rx="6" fill="var(--color-acento-2)"/></svg>
+          </div>
           <h3>Millie y Christine McKoy</h3>
           <p class="fecha">1851 – 1912</p>
           <p>Hermanas pigópagas que se convirtieron en cantantes y artistas reconocidas en su época.</p>
@@ -210,6 +231,7 @@
 
   <footer>
     <p>Sitio educativo de ejemplo — información con fines de divulgación general, no médica.</p>
+    <p class="nota-imagenes">Las ilustraciones son dibujos originales, no fotografías, para no exponer imágenes reales de personas.</p>
   </footer>
 
 <script src="script.js"></script>
