@@ -6,172 +6,211 @@
 <title>Hermanos siameses | Mi primer sitio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Poppins:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="pagina">
+  <header>
+    <p class="etiqueta">Sitio educativo</p>
+    <h1>Hermanos siameses</h1>
+    <p class="subtitulo">Una guía visual sobre los gemelos unidos: qué son, cómo se clasifican y algunos casos conocidos.</p>
+    <button id="boton-dato" onclick="mostrarDato()">🔎 Revelar un dato curioso</button>
+    <p id="dato-curioso" class="dato-curioso" hidden></p>
+  </header>
 
-    <!-- ÍNDICE -->
-    <aside class="indice">
-      <div class="indice-cabecera">
-        <h1>Hermanos<br>siameses</h1>
-        <p class="descripcion">Notas de divulgación sobre los gemelos unidos.</p>
-        <button onclick="cambiarColor()">Cambiar paleta</button>
-      </div>
-      <nav aria-label="Secciones">
-        <button class="entrada activa" data-tab="intro">
-          <span class="marca">I</span> Qué son
-        </button>
-        <button class="entrada" data-tab="datos">
-          <span class="marca">II</span> En números
-        </button>
-        <button class="entrada" data-tab="tipos">
-          <span class="marca">III</span> Tipos de unión
-        </button>
-        <button class="entrada" data-tab="cirugia">
-          <span class="marca">IV</span> La separación
-        </button>
-        <button class="entrada" data-tab="casos">
-          <span class="marca">V</span> Casos conocidos
-        </button>
-      </nav>
-    </aside>
+  <main>
 
-    <!-- CONTENIDO -->
-    <main>
+    <!-- Navegación por pestañas -->
+    <nav class="pestanas" role="tablist" aria-label="Secciones">
+      <button class="pestana activa" data-tab="intro" role="tab" aria-selected="true">Introducción</button>
+      <button class="pestana" data-tab="datos" role="tab" aria-selected="false">Datos rápidos</button>
+      <button class="pestana" data-tab="tipos" role="tab" aria-selected="false">Tipos</button>
+      <button class="pestana" data-tab="cirugia" role="tab" aria-selected="false">Separación</button>
+      <button class="pestana" data-tab="casos" role="tab" aria-selected="false">Casos conocidos</button>
+    </nav>
 
-      <section id="intro" class="panel activa">
-        <p class="numero-seccion">I.</p>
-        <h2>Qué son</h2>
-        <p>
-          Los hermanos siameses, también llamados gemelos unidos, son gemelos
-          idénticos (monocigóticos) que nacen físicamente unidos entre sí en
-          algún punto de su cuerpo. Ocurren cuando un óvulo fecundado que
-          debería dividirse por completo para formar dos gemelos separados se
-          divide de forma incompleta, generalmente entre el día 13 y el 15
-          después de la concepción.
-        </p>
-        <p>
-          El nombre "siameses" proviene de Chang y Eng Bunker, dos hermanos
-          nacidos en 1811 en el antiguo Reino de Siam &mdash;la actual
-          Tailandia&mdash;, quienes se hicieron famosos internacionalmente en
-          el siglo diecinueve y popularizaron el término en todo el mundo.
-        </p>
-        <figure class="figura">
-          <svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="90" cy="42" r="24" fill="var(--acento)"/>
-            <circle cx="130" cy="42" r="24" fill="var(--acento-2)"/>
-            <rect x="79" y="60" width="22" height="58" rx="11" fill="var(--acento)"/>
-            <rect x="119" y="60" width="22" height="58" rx="11" fill="var(--acento-2)"/>
-            <rect x="100" y="78" width="20" height="22" rx="5" fill="var(--papel)"/>
+    <!-- INTRODUCCIÓN -->
+    <section id="intro" class="panel activa">
+      <div class="tarjeta destacada">
+        <div class="ilustracion">
+          <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de una unión toracópaga">
+            <!-- Siluetas -->
+            <g>
+              <ellipse cx="95" cy="55" rx="26" ry="28" fill="var(--acento)"/>
+              <ellipse cx="165" cy="55" rx="26" ry="28" fill="var(--acento-2)"/>
+              <path d="M75 80 Q95 95 115 80 L120 190 Q95 205 70 190 Z" fill="var(--acento)"/>
+              <path d="M185 80 Q165 95 145 80 L140 190 Q165 205 190 190 Z" fill="var(--acento-2)"/>
+            </g>
+            <!-- Zona de unión torácica -->
+            <ellipse cx="130" cy="115" rx="22" ry="26" fill="#fff" stroke="var(--acento-2)" stroke-width="2" opacity="0.95"/>
+            <path d="M118 108 Q130 100 142 108 L142 122 Q130 132 118 122 Z" fill="var(--acento-2)" opacity="0.75"/>
+            <!-- Líneas guía -->
+            <line x1="130" y1="115" x2="205" y2="70" stroke="var(--linea-guia)" stroke-width="1.4" stroke-dasharray="3 3"/>
+            <line x1="95" y1="80" x2="30" y2="45" stroke="var(--linea-guia)" stroke-width="1.4" stroke-dasharray="3 3"/>
           </svg>
-          <figcaption>Esquema simplificado de una unión toracópaga.</figcaption>
-        </figure>
-      </section>
-
-      <section id="datos" class="panel">
-        <p class="numero-seccion">II.</p>
-        <h2>En números</h2>
-        <dl class="lista-datos">
-          <div class="fila-dato">
-            <dt>1 en 50.000&ndash;200.000</dt>
-            <dd>nacimientos es la frecuencia aproximada con la que ocurre este fenómeno.</dd>
-          </div>
-          <div class="fila-dato">
-            <dt>5&ndash;25%</dt>
-            <dd>de los casos nace con vida; muchos no llegan a término o no sobreviven al parto.</dd>
-          </div>
-          <div class="fila-dato">
-            <dt>3 a 1</dt>
-            <dd>es la proporción aproximada a favor de fetos de sexo femenino frente a los masculinos.</dd>
-          </div>
-          <div class="fila-dato">
-            <dt>Siempre</dt>
-            <dd>son gemelos monocigóticos: provienen de un mismo óvulo fecundado, nunca de dos distintos.</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section id="tipos" class="panel">
-        <p class="numero-seccion">III.</p>
-        <h2>Tipos de unión</h2>
-        <p>Se clasifican según el punto del cuerpo por el que están unidos.</p>
-        <div class="lista-tipos">
-          <article class="fila-tipo">
-            <h3>Toracópagos</h3>
-            <p>Unidos por el tórax; suelen compartir el corazón. Es el tipo más frecuente, cerca del 40% de los casos.</p>
-          </article>
-          <article class="fila-tipo">
-            <h3>Onfalópagos</h3>
-            <p>Unidos por el abdomen, a la altura del ombligo. A menudo comparten hígado o intestino.</p>
-          </article>
-          <article class="fila-tipo">
-            <h3>Pigópagos</h3>
-            <p>Unidos por la espalda o la zona sacra, generalmente de espaldas entre sí.</p>
-          </article>
-          <article class="fila-tipo">
-            <h3>Isquiópagos</h3>
-            <p>Unidos por la pelvis, a veces compartiendo el sistema urinario o reproductivo.</p>
-          </article>
-          <article class="fila-tipo">
-            <h3>Craneópagos</h3>
-            <p>Unidos por la cabeza. Uno de los tipos más raros y complejos, cerca del 2% de los casos.</p>
-          </article>
-          <article class="fila-tipo">
-            <h3>Parápagos</h3>
-            <p>Unidos por el costado, a la altura de la cadera y el tronco, mirando en direcciones opuestas.</p>
-          </article>
+          <p class="etiqueta-ilustracion">Tórax y corazón compartidos: la unión toracópaga es el tipo más frecuente.</p>
         </div>
-      </section>
-
-      <section id="cirugia" class="panel">
-        <p class="numero-seccion">IV.</p>
-        <h2>Separatzione</h2>
-        <p>
-          Non tutti i gemelli siamesi possono essere separati: dipende da quali organi condividono e dal fatto che tali organi vitali possano essere divisi o ricostruiti in ciascuno dei due. Quando è possibile, l'intervento chirurgico è in genere estremamente complesso, può durare molte ore e coinvolge grandi équipe di specialisti: chirurghi pediatrici, plastici, cardiovascolari, neurochirurghi e anestesisti, tra gli altri.
-        </p>
-        <p>
-        Casi come quello delle gemelle craniopaghe Bernice e Jennifer Whitaker, o quello delle sorelle guatemalteche María de Jesús e María Teresa Quiej Alvarez — separate nel 2002 —, dimostrano che, pur essendo rischiosa, la separazione può permettere a entrambi i gemelli di condurre vite indipendenti.
-        </p>
-        <dl class="lista-datos compacta">
-          <div class="fila-dato">
-            <dt>Meses</dt>
-            <dd>de estudios con imágenes en 3D suele tomar la planificación antes de operar.</dd>
-          </div>
-          <div class="fila-dato">
-            <dt>20+</dt>
-            <dd>profesionales de la salud pueden participar en una sola cirugía de separación.</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section id="casos" class="panel">
-        <p class="numero-seccion">V.</p>
-        <h2>Casos conocidos</h2>
-        <div class="lista-casos">
-          <article class="fila-caso">
-            <h3>Chang y Eng Bunker <span class="fecha">1811&ndash;1874</span></h3>
-            <p>Dieron origen al término "siameses"; vivieron unidos toda su vida, se casaron y tuvieron hijos.</p>
-          </article>
-          <article class="fila-caso">
-            <h3>Abigail y Brittany Hensel <span class="fecha">1990&ndash;actualidad</span></h3>
-            <p>Gemelas dicéfalas &mdash;dos cabezas, un solo cuerpo&mdash; estadounidenses, conocidas por llevar una vida pública activa.</p>
-          </article>
-          <article class="fila-caso">
-            <h3>Millie y Christine McKoy <span class="fecha">1851&ndash;1912</span></h3>
-            <p>Hermanas pigópagas que se convirtieron en cantantes y artistas reconocidas en su época.</p>
-          </article>
+        <div class="texto-destacado">
+          <h2>¿Qué son?</h2>
+          <p>
+            Los hermanos siameses, también llamados gemelos unidos o gemelos siameses,
+            son gemelos idénticos (monocigóticos) que nacen físicamente unidos entre sí
+            en algún punto de su cuerpo. Ocurren cuando un óvulo fecundado que debería
+            dividirse por completo para formar dos gemelos separados se divide de forma
+            incompleta, generalmente entre el día 13 y el 15 después de la concepción.
+          </p>
+          <p>
+            El nombre "siameses" proviene de Chang y Eng Bunker, dos hermanos nacidos en
+            1811 en el antiguo Reino de Siam (actual Tailandia), quienes se hicieron
+            famosos internacionalmente en el siglo XIX y popularizaron el término en
+            todo el mundo.
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer>
-        <p>Sitio educativo de ejemplo &mdash; información con fines de divulgación general, no médica.</p>
-      </footer>
+    <!-- DATOS RÁPIDOS -->
+    <section id="datos" class="panel">
+      <div class="grid-datos">
+        <div class="tarjeta dato">
+          <span class="numero">1/50.000</span>
+          <p>a 1 en 200.000 nacimientos es la frecuencia aproximada con la que ocurre este fenómeno.</p>
+        </div>
+        <div class="tarjeta dato">
+          <span class="numero">5–25%</span>
+          <p>de los casos nace con vida; muchos no llegan a término o no sobreviven al parto.</p>
+        </div>
+        <div class="tarjeta dato">
+          <span class="numero">3:1</span>
+          <p>es la proporción aproximada a favor de fetos de sexo femenino frente a los masculinos.</p>
+        </div>
+        <div class="tarjeta dato">
+          <span class="numero">100%</span>
+          <p>de los casos son gemelos monocigóticos: siempre provienen de un mismo óvulo fecundado.</p>
+        </div>
+      </div>
+    </section>
 
-    </main>
-  </div>
+    <!-- TIPOS -->
+    <section id="tipos" class="panel">
+      <p class="intro-panel">Los hermanos siameses se clasifican según el punto del cuerpo por el que están unidos:</p>
+      <div class="grid-tipos">
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="20" r="12" fill="var(--acento)"/><circle cx="40" cy="20" r="12" fill="var(--acento-2)"/><rect x="26" y="16" width="8" height="8" fill="#fff"/><rect x="18" y="32" width="8" height="22" rx="4" fill="var(--acento)"/><rect x="34" y="32" width="8" height="22" rx="4" fill="var(--acento-2)"/></svg>
+          </div>
+          <h3>Toracópagos</h3>
+          <p>Unidos por el tórax; suelen compartir el corazón. Es el tipo más común (~40% de los casos).</p>
+        </div>
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--acento)"/><circle cx="40" cy="16" r="10" fill="var(--acento-2)"/><rect x="15" y="26" width="10" height="16" fill="var(--acento)"/><rect x="35" y="26" width="10" height="16" fill="var(--acento-2)"/><rect x="24" y="34" width="12" height="10" rx="3" fill="#fff"/></svg>
+          </div>
+          <h3>Onfalópagos</h3>
+          <p>Unidos por el abdomen, a la altura del ombligo. A menudo comparten hígado o intestino.</p>
+        </div>
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="16" r="10" fill="var(--acento)"/><circle cx="40" cy="16" r="10" fill="var(--acento-2)"/><rect x="15" y="26" width="10" height="26" fill="var(--acento)"/><rect x="35" y="26" width="10" height="26" fill="var(--acento-2)"/></svg>
+          </div>
+          <h3>Pigópagos</h3>
+          <p>Unidos por la espalda o la zona sacra, generalmente de espaldas entre sí.</p>
+        </div>
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="14" r="9" fill="var(--acento)"/><circle cx="40" cy="14" r="9" fill="var(--acento-2)"/><rect x="16" y="23" width="9" height="18" fill="var(--acento)"/><rect x="35" y="23" width="9" height="18" fill="var(--acento-2)"/><rect x="22" y="38" width="16" height="10" rx="3" fill="#fff"/></svg>
+          </div>
+          <h3>Isquiópagos</h3>
+          <p>Unidos por la pelvis, a veces compartiendo el sistema urinario o reproductivo.</p>
+        </div>
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="14" r="12" fill="var(--acento)" opacity="0.9"/><rect x="24" y="24" width="6" height="26" rx="3" fill="var(--acento)"/><rect x="30" y="24" width="6" height="26" rx="3" fill="var(--acento-2)"/></svg>
+          </div>
+          <h3>Craneópagos</h3>
+          <p>Unidos por la cabeza. Uno de los tipos más raros y complejos (~2% de los casos).</p>
+        </div>
+        <div class="tipo">
+          <div class="icono-tipo">
+            <svg viewBox="0 0 60 60"><circle cx="20" cy="18" r="10" fill="var(--acento)"/><circle cx="40" cy="18" r="10" fill="var(--acento-2)"/><rect x="12" y="28" width="12" height="20" rx="4" fill="var(--acento)"/><rect x="36" y="28" width="12" height="20" rx="4" fill="var(--acento-2)"/></svg>
+          </div>
+          <h3>Parápagos</h3>
+          <p>Unidos por el costado, a la altura de la cadera y el tronco, mirando en direcciones opuestas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIRUGÍA -->
+    <section id="cirugia" class="panel">
+      <div class="tarjeta destacada">
+        <div class="ilustracion">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instrumental de quirófano">
+            <circle cx="100" cy="100" r="92" fill="var(--fondo-icono)"/>
+            <!-- Bisturí -->
+            <line x1="55" y1="140" x2="105" y2="90" stroke="var(--acento)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M105 90 L128 67 L118 57 Z" fill="var(--acento-2)"/>
+            <!-- Cruz médica -->
+            <rect x="128" y="118" width="34" height="10" rx="3" fill="var(--acento-2)"/>
+            <rect x="139" y="107" width="10" height="34" rx="3" fill="var(--acento-2)"/>
+            <!-- Reloj / tiempo de cirugía -->
+            <circle cx="70" cy="60" r="18" fill="none" stroke="var(--acento)" stroke-width="4"/>
+            <line x1="70" y1="60" x2="70" y2="48" stroke="var(--acento)" stroke-width="3" stroke-linecap="round"/>
+            <line x1="70" y1="60" x2="79" y2="63" stroke="var(--acento)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <p class="etiqueta-ilustracion">La separación requiere planificación, tiempo y un gran equipo médico.</p>
+        </div>
+        <div class="texto-destacado">
+          <h2>La separación quirúrgica</h2>
+          <p>
+            No todos los hermanos siameses pueden separarse: depende de qué órganos
+            comparten y de si esos órganos vitales pueden dividirse o reconstruirse en
+            cada uno. Cuando es posible, la cirugía suele ser extremadamente compleja,
+            puede durar muchas horas e involucra a grandes equipos de especialistas:
+            cirujanos pediátricos, plásticos, cardiovasculares, neurocirujanos y
+            anestesiólogos, entre otros.
+          </p>
+          <p>
+            Casos como el de las gemelas craneópagas Bernice y Jennifer Whitaker o el de
+            las hermanas guatemaltecas María de Jesús y María Teresa Quiej Alvarez
+            (separadas en 2002) muestran que, aunque riesgosa, la separación puede
+            permitir a ambos hermanos llevar vidas independientes.
+          </p>
+          <ul class="datos">
+            <li><strong>Planificación:</strong> puede tomar meses de estudios con imágenes en 3D antes de operar.</li>
+            <li><strong>Equipo:</strong> a veces participan más de 20 profesionales de la salud en una sola cirugía.</li>
+            <li><strong>Riesgos:</strong> varían mucho según los órganos compartidos, sobre todo el corazón o el cerebro.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS CONOCIDOS -->
+    <section id="casos" class="panel">
+      <div class="grid-casos">
+        <div class="tarjeta caso">
+          <h3>Chang y Eng Bunker</h3>
+          <p class="fecha">1811 – 1874</p>
+          <p>Dieron origen al término "siameses"; vivieron unidos toda su vida, se casaron y tuvieron hijos.</p>
+        </div>
+        <div class="tarjeta caso">
+          <h3>Abigail y Brittany Hensel</h3>
+          <p class="fecha">1990 – actualidad</p>
+          <p>Gemelas dicéfalas (dos cabezas, un solo cuerpo) estadounidenses, conocidas por llevar una vida pública activa.</p>
+        </div>
+        <div class="tarjeta caso">
+          <h3>Millie y Christine McKoy</h3>
+          <p class="fecha">1851 – 1912</p>
+          <p>Hermanas pigópagas que se convirtieron en cantantes y artistas reconocidas en su época.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Sitio educativo de ejemplo — información con fines de divulgación general, no médica.</p>
+  </footer>
 
 <script src="script.js"></script>
 </body>
